@@ -26,7 +26,7 @@ const STATUS_DOT: Record<Status, string> = {
 
 export default function ProductCard({ href, status, eyebrow, name, tagline, description, highlights }: Props) {
   const inner = (
-    <article className={`card ${status !== "live" ? "card-soon" : ""}`}>
+    <article className={`card ${!href ? "card-soon" : ""}`}>{/* card-soon fade only for cards with nothing to click — i.e. status="exploring" slot 03. "soon" cards with an href (preview-landing) stay at full opacity to match the Sanketra "live" card weight, while keeping the "Coming soon" badge for honest status semantics. */}
       <header className="flex items-center justify-between">
         <span className="masthead">{eyebrow}</span>
         <span className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted">
