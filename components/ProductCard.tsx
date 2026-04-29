@@ -57,7 +57,7 @@ export default function ProductCard({ href, status, eyebrow, name, tagline, desc
   // Anything with an href is clickable, regardless of status. "soon" cards
   // still wear the "Coming soon" badge + faded card-soon styling, but the
   // card becomes a preview-link to the in-development product's landing.
-  // (Pattern added 2026-04-28 when Chakshu's chakshu1.vercel.app went live
+  // (Pattern added 2026-04-28 when Chahani's chahani.vercel.app went live
   // ahead of v1 hardware bring-up.)
   if (href) {
     return (

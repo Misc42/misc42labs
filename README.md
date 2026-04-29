@@ -1,6 +1,6 @@
 # Misc42 Labs
 
-Master portfolio site for the studio. Lists products (Sanketra, Chakshu, future)
+Master portfolio site for the studio. Lists products (Sanketra, Chahani, future)
 linking out to each product's dedicated marketing site on its own domain.
 
 ## Architecture
