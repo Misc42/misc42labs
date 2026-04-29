@@ -46,15 +46,20 @@ export default function ProductCard({ href, status, eyebrow, name, tagline, desc
           </li>
         ))}
       </ul>
-      {status === "live" && href && (
+      {href && (
         <span className="mt-2 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.14em] text-saffron">
-          Visit site →
+          {status === "live" ? "Visit site →" : "Preview landing →"}
         </span>
       )}
     </article>
   );
 
-  if (href && status === "live") {
+  // Anything with an href is clickable, regardless of status. "soon" cards
+  // still wear the "Coming soon" badge + faded card-soon styling, but the
+  // card becomes a preview-link to the in-development product's landing.
+  // (Pattern added 2026-04-28 when Chakshu's chakshu1.vercel.app went live
+  // ahead of v1 hardware bring-up.)
+  if (href) {
     return (
       <Link href={href} target="_blank" rel="noreferrer" className="card-link">
         {inner}
