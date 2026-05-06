@@ -13,10 +13,10 @@ const products = [
   },
   {
     status: "soon" as const,
-    href: "https://chahani.vercel.app",
+    href: "https://misc42.github.io/mukut-landing/",
     eyebrow: "02 · Hardware + Software",
-    name: "Chahani",
-    tagline: "चाहाणि — हर मोड़ पर नज़र",
+    name: "Mukut",
+    tagline: "मुकुट — हर मोड़ पर साथ",
     description:
       "A clip-on safety module for any ISI motorcycle helmet — dual rear cameras, live HUD, tri-radio mesh, cross-horizon SOS. v1 hand-built on perfboard, friends-test alpha in progress.",
     highlights: ["Hardware", "ESP32-S3", "RV1126", "BLE + WiFi AP"] as const
