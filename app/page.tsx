@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 const products = [
   {
     status: "live" as const,
-    href: "https://sanketra.vercel.app",
+    href: "https://misc42.github.io/sanketra/",
     eyebrow: "01 · Software",
     name: "Sanketra",
     tagline: "PC का कान",
