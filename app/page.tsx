@@ -13,7 +13,7 @@ const products = [
   },
   {
     status: "soon" as const,
-    href: "https://misc42.github.io/mukut-landing/",
+    href: "https://misc42.github.io/mukut/",
     eyebrow: "02 · Hardware + Software",
     name: "Mukut",
     tagline: "मुकुट — हर मोड़ पर साथ",
