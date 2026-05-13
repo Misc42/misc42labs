@@ -126,6 +126,11 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
+  /* Fill the grid row regardless of content length — without this, the card
+     with the shortest description (Sanketra) renders shorter than its
+     neighbours and the tile row looks uneven. height: 100% works because
+     CSS Grid stretches its items by default to the row height. */
+  height: 100%;
   gap: 1.25rem;
   padding: 1.75rem;
   border: var(--rail);
@@ -133,6 +138,14 @@ footer {
   background: color-mix(in srgb, var(--surface) 92%, transparent);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.6);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Link wrapper around href'd cards needs to be a block-level flex item too
+   so its child card can grow to row height. Without it, the Link collapses
+   to content height and the card inside has no parent height to fill. */
+.card-link {
+  display: block;
+  height: 100%;
 }
 
 .card-link:hover .card {
