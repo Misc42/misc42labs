@@ -22,12 +22,14 @@ const products = [
     highlights: ["Hardware", "ESP32-S3", "RV1126", "BLE + WiFi AP"] as const
   },
   {
-    status: "exploring" as const,
-    eyebrow: "03 · ?",
-    name: "—",
-    tagline: "अगला idea",
-    description: "Slot held for the next thing. Misc42 Labs ships when conviction is sharp, not when calendar says.",
-    highlights: ["Watching"] as const
+    status: "soon" as const,
+    href: "https://misc42.github.io/tvashtra-landing/",
+    eyebrow: "03 · Software",
+    name: "Tvashtra",
+    tagline: "त्वष्टृ — LLM-driven CAD that doesn't lie",
+    description:
+      "Desktop-first CAD where you talk to the model, it builds the parts in a real B-rep kernel, and self-verifies against rendered snapshots before declaring done. BYO Claude / Gemini / OpenAI / Ollama. Private beta.",
+    highlights: ["Desktop", "OCCT", "wgpu", "BYO LLM"] as const
   }
 ];
 
