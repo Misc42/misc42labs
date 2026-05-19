@@ -4,7 +4,7 @@ const products = [
   {
     status: "live" as const,
     href: "https://misc42.github.io/sanketra/",
-    eyebrow: "01 · Software",
+    eyebrow: "01 · Consumer software",
     name: "Sanketra",
     tagline: "PC का कान",
     description:
@@ -24,12 +24,22 @@ const products = [
   {
     status: "soon" as const,
     href: "https://misc42.github.io/tvashtra-landing/",
-    eyebrow: "03 · Software",
+    eyebrow: "03 · Consumer software",
     name: "Tvashtra",
-    tagline: "त्वष्टृ — LLM-driven CAD that doesn't lie",
+    tagline: "त्वष्टृ — model-driven CAD that doesn't lie",
     description:
       "Desktop-first CAD where you talk to the model, it builds the parts in a real B-rep kernel, and self-verifies against rendered snapshots before declaring done. BYO Claude / Gemini / OpenAI / Ollama. Private beta.",
-    highlights: ["Desktop", "OCCT", "wgpu", "BYO LLM"] as const
+    highlights: ["Desktop", "OCCT", "wgpu", "BYO model"] as const
+  },
+  {
+    status: "live" as const,
+    href: "https://misc42.github.io/theclub-landing/",
+    eyebrow: "04 · Developer tool",
+    name: "theClub",
+    tagline: "एक कोडबेस, चार दिमाग",
+    description:
+      "A local desktop orchestrator that runs four coding CLIs on one codebase in parallel — claude, gemini, codex, aider — through an 8-phase pipeline (analyse, plan, execute, review, merge, verify). The workshop tool we built to ship the rest of the studio.",
+    highlights: ["Linux", "Tauri", "Rust", "Open source"] as const
   }
 ];
 
@@ -38,17 +48,19 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <header className="wrap pt-24 pb-20 md:pt-36 md:pb-28">
-        <p className="masthead mb-6">Consumer software studio · India</p>
+        <p className="masthead mb-6">A studio of consumer software & developer tools · India</p>
         <h1 className="display">
           Misc42<span className="text-saffron"> Labs</span>
           <span className="block serif-italic text-muted text-[0.36em] mt-6">
-            Hindi-first products. Built for the way Indians actually use their devices.
+            Hindi-first products, and the developer tools we use to build them.
           </span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted leading-relaxed">
-          We make consumer software (and a bit of hardware) for the 700M+ Indians whose first
-          language isn&apos;t English. No analytics. No cloud middleware. No subscription traps.
-          One-time licenses, offline-first runtime, and code that respects your battery.
+          Two kinds of things ship from this studio — consumer software (and a bit of
+          hardware) for the 700M+ Indians whose first language isn&apos;t English, and the
+          open-source developer tools the studio uses to make them. No analytics. No cloud
+          middleware. No subscription traps. One-time licenses, offline-first runtime, and
+          code that respects your battery.
         </p>
         <div className="mt-10 flex items-center gap-6 text-sm font-mono uppercase tracking-[0.18em] text-muted">
           <a href="#products" className="text-ink hover:text-saffron transition">
@@ -83,15 +95,21 @@ export default function HomePage() {
               One person. <span className="serif-italic text-saffron">Sharp ideas only.</span>
             </h2>
             <p className="mt-6 text-lg text-muted leading-relaxed">
-              Misc42 Labs is the consumer-software studio of <strong className="text-ink">Tanay Misra</strong>,
-              based in India. The studio model means slow-on-purpose: ship a product when it&apos;s
-              actually <em>good</em>, not when investor calendars demand it. Each product gets
-              its own deep landing page on its own domain — Misc42 Labs is the portfolio
-              container, not the brand customers buy.
+              Misc42 Labs is the studio of <strong className="text-ink">Tanay Misra</strong>,
+              based in India. Two parallel arms — consumer software for Indian users, and
+              the developer tools the studio uses to make them. The tools half is
+              open-source because if a workshop instrument is sharp enough to ship our own
+              products, it&apos;s sharp enough to share.
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
-              Bias toward LAN-first, zero-cloud, offline-respecting design. If a feature requires
-              shipping your data to a server we don&apos;t control, we don&apos;t build it.
+              The studio model means slow-on-purpose: ship a product when it&apos;s actually
+              <em> good</em>, not when investor calendars demand it. Each consumer product
+              gets its own deep landing page on its own domain; the dev tools live on
+              GitHub.
+            </p>
+            <p className="mt-4 text-lg text-muted leading-relaxed">
+              Bias toward LAN-first, zero-cloud, offline-respecting design. If a feature
+              requires shipping your data to a server we don&apos;t control, we don&apos;t build it.
             </p>
           </div>
           <aside className="card">
