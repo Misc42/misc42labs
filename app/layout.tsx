@@ -32,7 +32,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://misc42labs.vercel.app"),
+  metadataBase: new URL("https://misc42.com"),
   title: {
     default: "Misc42 Labs — consumer software studio",
     template: "%s — Misc42 Labs"
