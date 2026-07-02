@@ -1,152 +1,115 @@
-import ProductCard from "@/components/ProductCard";
+import ProductRow from "@/components/ProductRow";
 
+// Rows link out to each product's own live site. Status chips and taglines
+// are final copy from the redesign handoff; thumbnails live in public/thumbs.
 const products = [
   {
-    status: "live" as const,
+    num: "01",
     href: "https://misc42.github.io/sanketra/",
-    eyebrow: "01 · Consumer software",
     name: "Sanketra",
-    tagline: "PC का कान",
-    description:
-      "A Hindi-first voice-to-text input layer for your PC. Speak from your phone or PC mic, watch text type into any app. LAN-only, zero cloud STT.",
-    highlights: ["Android", "macOS", "Windows", "Linux"] as const
+    hindi: "बोलो, टाइप होगा",
+    description: "Hindi-first dictation for your PC — phone or desk mic, fully offline.",
+    status: { label: "● Live · free beta", color: "#15803D" },
+    thumb: "/thumbs/sanketra.png",
+    thumbFit: "cover" as const
   },
   {
-    status: "soon" as const,
+    num: "02",
     href: "https://misc42.github.io/mukut/",
-    eyebrow: "02 · Hardware + Software",
     name: "Mukut",
-    tagline: "मुकुट — हर मोड़ पर साथ",
-    description:
-      "A clip-on safety module for any ISI motorcycle helmet — dual rear cameras, live HUD, tri-radio mesh, cross-horizon SOS. v1 hand-built on perfboard, friends-test alpha in progress.",
-    highlights: ["Hardware", "ESP32-S3", "RV1126", "BLE + WiFi AP"] as const
+    hindi: "हर मोड़ पर साथ",
+    description: "Clip-on helmet safety — rear cameras, HUD, mesh SOS. No phone needed.",
+    status: { label: "◐ Friends alpha", color: "#C2410C" },
+    thumb: null,
+    thumbNote: "Hardware photo — soon"
   },
   {
-    status: "soon" as const,
+    num: "03",
     href: "https://misc42.github.io/tvashtra-landing/",
-    eyebrow: "03 · Consumer software",
     name: "Tvashtra",
-    tagline: "त्वष्टृ — model-driven CAD that doesn't lie",
-    description:
-      "Desktop-first CAD where you talk to the model, it builds the parts in a real B-rep kernel, and self-verifies against rendered snapshots before declaring done. BYO Claude / Gemini / OpenAI / Ollama. Private beta.",
-    highlights: ["Desktop", "OCCT", "wgpu", "BYO model"] as const
+    hindi: "त्वष्त्र",
+    description: "Conversational CAD on a real B-rep kernel — it verifies its own work.",
+    status: { label: "◐ Private beta", color: "#A16207" },
+    thumb: "/thumbs/tvashtra.png",
+    thumbFit: "cover" as const
   },
   {
-    status: "live" as const,
+    num: "04",
     href: "https://misc42.github.io/theclub-landing/",
-    eyebrow: "04 · Developer tool",
     name: "theClub",
-    tagline: "एक कोडबेस, चार दिमाग",
-    description:
-      "A local desktop orchestrator that runs four coding CLIs on one codebase in parallel — claude, gemini, codex, aider — through an 8-phase pipeline (analyse, plan, execute, review, merge, verify). The workshop tool we built to ship the rest of the studio.",
-    highlights: ["Linux", "Tauri", "Rust", "Open source"] as const
+    hindi: "एक कोडबेस, चार दिमाग",
+    description: "Four coding agents on one codebase, merged autonomously. Open source.",
+    status: { label: "◇ AGPL · v0.6", color: "#4338CA" },
+    thumb: "/thumbs/theclub.png",
+    thumbFit: "cover" as const,
+    thumbPos: "top"
   }
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <header className="wrap pt-24 pb-20 md:pt-36 md:pb-28">
-        <p className="masthead mb-6">A studio of consumer software & developer tools · India</p>
-        <h1 className="display">
-          Misc42<span className="text-saffron"> Labs</span>
-          <span className="block serif-italic text-muted text-[0.36em] mt-6">
-            Hindi-first products, and the developer tools we use to build them.
-          </span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted leading-relaxed">
-          Two kinds of things ship from this studio — consumer software (and a bit of
-          hardware) for the 700M+ Indians whose first language isn&apos;t English, and the
-          open-source developer tools the studio uses to make them. No analytics. No cloud
-          middleware. No subscription traps. One-time licenses, offline-first runtime, and
-          code that respects your battery.
-        </p>
-        <div className="mt-10 flex items-center gap-6 text-sm font-mono uppercase tracking-[0.18em] text-muted">
-          <a href="#products" className="text-ink hover:text-saffron transition">
-            See products →
+      <header className="nav">
+        <div className="nav-inner">
+          <a href="#" className="nav-brand">
+            Misc42<span>*</span>
           </a>
-          <span className="text-faint">·</span>
-          <a href="#about" className="hover:text-saffron transition">
-            About
+          <nav className="nav-links">
+            <a href="#products" className="active">
+              Products
+            </a>
+            <a href="#studio">Studio</a>
+            <a href="https://github.com/Misc42" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </nav>
+          <a href="mailto:hello@misc42.com" className="nav-cta">
+            Get in touch
           </a>
         </div>
       </header>
 
-      {/* PRODUCTS */}
-      <section id="products" className="wrap rule-top pt-20 pb-16">
-        <div className="flex items-baseline justify-between mb-12">
-          <p className="masthead">Products</p>
-          <p className="serif-italic text-muted">a small portfolio, on purpose</p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <main>
+        <section className="wrap" style={{ paddingTop: 92, paddingBottom: 64 }}>
+          <h1 className="hero-h1">
+            Four products.
+            <br />
+            <span className="dim">Zero cloud middleware.</span>
+          </h1>
+          <p className="hero-sub">
+            An independent studio from India. Offline-first software you pay for once and own
+            outright.
+          </p>
+        </section>
+
+        <section id="products" className="product-index">
           {products.map((p) => (
-            <ProductCard key={p.name} {...p} />
+            <ProductRow key={p.name} {...p} />
           ))}
-        </div>
-      </section>
+        </section>
 
-      {/* ABOUT */}
-      <section id="about" className="wrap rule-top pt-20 pb-24">
-        <p className="masthead mb-6">About</p>
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
-          <div>
-            <h2 className="section-title">
-              One person. <span className="serif-italic text-saffron">Sharp ideas only.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted leading-relaxed">
-              Misc42 Labs is the studio of <strong className="text-ink">Tanay Misra</strong>,
-              based in India. Two parallel arms — consumer software for Indian users, and
-              the developer tools the studio uses to make them. The tools half is
-              open-source because if a workshop instrument is sharp enough to ship our own
-              products, it&apos;s sharp enough to share.
-            </p>
-            <p className="mt-4 text-lg text-muted leading-relaxed">
-              The studio model means slow-on-purpose: ship a product when it&apos;s actually
-              <em> good</em>, not when investor calendars demand it. Each consumer product
-              gets its own deep landing page on its own domain; the dev tools live on
-              GitHub.
-            </p>
-            <p className="mt-4 text-lg text-muted leading-relaxed">
-              Bias toward LAN-first, zero-cloud, offline-respecting design. If a feature
-              requires shipping your data to a server we don&apos;t control, we don&apos;t build it.
-            </p>
+        <section id="studio" className="studio">
+          <p>
+            A one-person studio. If a feature needs your data on a server we don&apos;t control, we
+            don&apos;t build it.
+          </p>
+          <div className="studio-links">
+            <a href="mailto:hello@misc42.com">Email</a>
+            <a href="https://x.com/misc42" target="_blank" rel="noreferrer">
+              X
+            </a>
+            <a href="https://github.com/Misc42" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
           </div>
-          <aside className="card">
-            <p className="masthead">Operator</p>
-            <p className="text-2xl text-ink leading-tight">Tanay Misra</p>
-            <p className="text-muted text-sm">Sole proprietor · India</p>
-            <hr className="border-rule my-2" />
-            <p className="masthead">Reach</p>
-            <ul className="text-sm text-muted leading-relaxed space-y-1">
-              <li>
-                <a href="mailto:tanaymisra97@gmail.com" className="text-ink hover:text-saffron">
-                  tanaymisra97@gmail.com
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/tanaymisra" className="hover:text-saffron" target="_blank" rel="noreferrer">
-                  x.com/tanaymisra
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/Misc42" className="hover:text-saffron" target="_blank" rel="noreferrer">
-                  github.com/Misc42
-                </a>
-              </li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* FOOTER */}
-      <footer className="wrap border-t border-rule py-10 mt-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm">
-        <p className="serif-italic text-muted">
-          A studio of one. Built in India, for India.
-        </p>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-          © {new Date().getFullYear()} Misc42 Labs · made by Tanay Misra
-        </p>
+      <footer className="foot">
+        <div className="foot-inner">
+          <span>© 2026 Misc42 Labs</span>
+          <span className="foot-made">भारत में बना</span>
+        </div>
       </footer>
     </>
   );
