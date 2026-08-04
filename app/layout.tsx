@@ -35,17 +35,27 @@ export const metadata: Metadata = {
       "An independent studio from India. Offline-first software you pay for once and own outright.",
     siteName: "Misc42 Labs",
     locale: "en_IN",
-    type: "website"
+    type: "website",
+    // Relative, so metadataBase above stays the ONLY place the host is written.
+    // Next joins metadataBase's pathname, so this resolves through the
+    // /misc42labs basePath. Source + regen command: public/og/og.html.
+    images: [
+      {
+        url: "/og/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Misc42* — Software you can own. Zero cloud middleware."
+      }
+    ]
   },
   twitter: {
-    // "summary" and not "summary_large_image": the large-image card promises a
-    // preview image, and this site ships none (no og:image anywhere, and
-    // public/ holds only the three product thumbnails). Declaring a card we
-    // cannot fill renders an empty box on X. Upgrade this the moment a real
-    // 1200x630 studio image exists.
-    card: "summary",
+    // Large-image card, now that public/og/og.png actually exists — this read
+    // "summary" while the site shipped no preview image at all, because
+    // declaring a card we cannot fill renders an empty box on X.
+    card: "summary_large_image",
     title: "Misc42 Labs",
-    description: "Offline-first software you pay for once and own outright."
+    description: "Offline-first software you pay for once and own outright.",
+    images: ["/og/og.png"]
   }
 };
 

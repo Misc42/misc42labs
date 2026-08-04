@@ -1,0 +1,114 @@
+<!doctype html>
+<!--
+  Source for public/og/og.png — the 1200x630 social preview.
+
+  Rendered, not drawn, so it uses the SITE'S OWN tokens (styles/globals.css) and
+  fonts rather than an approximation: paper #FAFAF7, ink #131315, faint #8A8A92,
+  marigold #B0740B, Schibsted Grotesk + Anek Devanagari. The site's own CSS
+  comment says "no gradients/noise", so this stays flat.
+
+  Regenerate after any brand change:
+    google-chrome --headless --disable-gpu --hide-scrollbars \
+      --window-size=1200,630 --screenshot=public/og/og.png \
+      --virtual-time-budget=10000 public/og/og.html
+
+  Copy deliberately avoids counting products ("Four products…" is on the page but
+  would silently go stale here the day a fifth ships — a page is easy to update,
+  a baked image is easy to forget).
+
+  Type sizes are driven by the SMALL case, not this 1200px one: feeds render the
+  card at roughly a quarter width, so everything here has to survive a 4x
+  downscale. A footer that reads fine at 1200px turns to mush at 300px.
+-->
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<!-- public/ is copied verbatim into the export, so this file is reachable at
+     /og/og.html. It is a render source, not a page — keep it out of the index. -->
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=Anek+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #FAFAF7;
+    color: #131315;
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px;
+    /* The paper tone is a hair off white, so against a white chat/feed the card
+       would bleed at the edges with no boundary. A full hairline in the site's
+       own rule colour contains it — this replaces an earlier marigold left-edge
+       bar, which solved the same problem but read as a stray `border-left`
+       rather than a deliberate mark. */
+    border: 1px solid #E8E7E1;
+  }
+  .brand {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .brand span { color: #B0740B; }
+
+  h1 {
+    /* 80px keeps the longer line near 875px, leaving real right-hand margin; at
+       88px it ran to the padding edge and read as squeezed. */
+    margin-top: 62px;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+  h1 .dim { color: #8A8A92; }
+
+  /* The marigold now appears exactly twice, both deliberate: the wordmark's
+     asterisk, and this rule anchoring the footer. */
+  .accent {
+    width: 58px;
+    height: 5px;
+    background: #B0740B;
+    margin-top: 58px;
+  }
+
+  .foot {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #5F5F66;
+  }
+  .foot .sep { color: #C9C8C0; }
+  /* Anek sits optically high against Schibsted on a shared baseline, so the
+     Devanagari floated above the Latin. Nudged down to align by eye, which is
+     the alignment that actually matters here. */
+  .deva {
+    font-family: "Anek Devanagari", sans-serif;
+    font-weight: 500;
+    position: relative;
+    top: 3px;
+  }
+</style>
+</head>
+<body>
+  <div class="brand">Misc42<span>*</span></div>
+
+  <h1>Software you can own.<br><span class="dim">Zero cloud middleware.</span></h1>
+
+  <div class="accent"></div>
+
+  <div class="foot">
+    <span>Offline-first</span>
+    <span class="sep">/</span>
+    <span>Independent studio</span>
+    <span class="sep">/</span>
+    <span class="deva">भारत में बना</span>
+  </div>
+</body>
+</html>
