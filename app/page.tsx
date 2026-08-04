@@ -27,7 +27,7 @@ const products = [
     num: "03",
     href: "https://misc42.github.io/tvashtra-landing/",
     name: "Tvashtra",
-    hindi: "त्वष्त्र",
+    hindi: "त्वष्टृ",
     description: "Conversational CAD on a real B-rep kernel — it verifies its own work.",
     status: { label: "◐ Private beta", color: "#A16207" },
     thumb: "/thumbs/tvashtra.png",
