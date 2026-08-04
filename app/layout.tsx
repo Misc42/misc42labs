@@ -17,7 +17,12 @@ const deva = Anek_Devanagari({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://misc42.com"),
+  // The site is served from GitHub Pages at this URL. It previously pointed at
+  // https://misc42.com, which does not resolve — any relative metadata URL
+  // (og:image, canonical) would have been built against a dead host. Point this
+  // at wherever the site is ACTUALLY served; change it the day a custom domain
+  // starts answering, not before.
+  metadataBase: new URL("https://misc42.github.io/misc42labs"),
   title: {
     default: "Misc42 Labs — software you can own",
     template: "%s — Misc42 Labs"
@@ -33,7 +38,12 @@ export const metadata: Metadata = {
     type: "website"
   },
   twitter: {
-    card: "summary_large_image",
+    // "summary" and not "summary_large_image": the large-image card promises a
+    // preview image, and this site ships none (no og:image anywhere, and
+    // public/ holds only the three product thumbnails). Declaring a card we
+    // cannot fill renders an empty box on X. Upgrade this the moment a real
+    // 1200x630 studio image exists.
+    card: "summary",
     title: "Misc42 Labs",
     description: "Offline-first software you pay for once and own outright."
   }

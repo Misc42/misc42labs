@@ -39,7 +39,7 @@ const products = [
     name: "theClub",
     hindi: "एक कोडबेस, चार दिमाग",
     description: "Four coding agents on one codebase, merged autonomously. Open source.",
-    status: { label: "◇ AGPL · v0.6", color: "#4338CA" },
+    status: { label: "◇ AGPL · v0.7.8", color: "#4338CA" },
     thumb: "/thumbs/theclub.png",
     thumbFit: "cover" as const,
     thumbPos: "top"
